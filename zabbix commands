@@ -1,0 +1,64 @@
+!@!@!@ FIRST INSTALL THE PACKAGES IN LINUX
+dnf install net-snmp-utils -y
+
+
+
+
+
+
+!@!@!@!@!@!@!@ 
+* snmp-server community public RO
+
+*- this one is not good for production
+Lab purpose:
+
+Fast
+
+Easy
+
+Works immediately
+
+Real world?
+
+❌ Not recommended
+
+Community string is plain text
+
+Anyone who knows “public” can poll your device
+
+
+!@put in for snmpV2 CSR1000V
+access-list 10 permit 192.168.1.10
+snmp-server community public RO 10
+
+✅ Much better
+
+✅ Very common in small/medium networks
+
+⚠ Still not encrypted
+
+
+!@!@ SNMPV3 csr1000v
+snmp-server group zabbix v3 priv
+snmp-server user admin zabbix v3 auth sha C1sc0123 priv aes 128 C1sc0123
+
+🔥 Now You Officially Have:
+
+✔ SNMPv3
+✔ SHA authentication
+✔ AES encryption
+✔ authPriv security level
+✔ Enterprise-style setup
+
+That’s legit production-level config.
+
+
+
+
+!@!@!@!@use this to check for spoofing in  wireshark
+udp.port == 161
+
+
+!@ send request your zabbix to the csr
+snmpwalk -v2c -c public "app add of the csr"
+
