@@ -3,9 +3,6 @@ dnf install net-snmp-utils -y
 
 
 
-
-
-
 !@!@!@!@!@!@!@ 
 * snmp-server community public RO
 
