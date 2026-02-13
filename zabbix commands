@@ -28,6 +28,12 @@ Anyone who knows “public” can poll your device
 access-list 10 permit 192.168.1.10
 snmp-server community public RO 10
 
+eto lagay
+conf t
+no access-list 112
+access-list 99 permit host 208.8.8.112
+snmp-server community public RO 99
+
 ✅ Much better
 
 ✅ Very common in small/medium networks
