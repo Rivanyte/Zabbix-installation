@@ -1,3 +1,11 @@
+for csr1000v
+conf t
+line vty 0 14
+exec-timeout 0 0
+login local
+end
+
+
 !@!@!@ FIRST INSTALL THE PACKAGES IN LINUX
 dnf install net-snmp-utils -y
 
